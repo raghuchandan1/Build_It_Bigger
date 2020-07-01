@@ -30,6 +30,7 @@ public class MainActivityFragment extends Fragment {
         mInterstitialAd = new InterstitialAd(getActivity());
         mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
@@ -59,6 +60,8 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onAdClosed() {
                 // Code to be executed when the interstitial ad is closed.
+                Log.i("Main Fragment", "Ad closed");
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
                 ((MainActivity) getActivity()).tellJoke(root.findViewById(R.id.button_tell_joke));
             }
         });
@@ -83,6 +86,7 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (mInterstitialAd.isLoaded()) {
+                    Log.i("Main Fragment", "Ad showed");
                     mInterstitialAd.show();
                 } else {
                     Log.d("TAG", "The interstitial wasn't loaded yet.");
