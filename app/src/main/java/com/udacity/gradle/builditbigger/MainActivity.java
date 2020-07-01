@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     public void tellJoke(View view) {
         Log.i("Main Activity", "In tellJoke");
 
+        //noinspection unchecked
         new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "RaghuChandan"));
 
         /*JokeSmith jokeSmith = new JokeSmith();
