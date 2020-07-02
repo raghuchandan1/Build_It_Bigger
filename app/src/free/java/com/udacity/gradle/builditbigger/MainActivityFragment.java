@@ -15,7 +15,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 
 /**
- * A placeholder fragment containing a simple view.
+ * A placeholder fragment which holds the button and the ad
  */
 public class MainActivityFragment extends Fragment {
     private InterstitialAd mInterstitialAd;
